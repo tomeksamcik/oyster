@@ -38,8 +38,8 @@ class OysterOperationsTest {
         ops.enterStation();
         ops.exitStation(Trip.builder()
                 .type(TripType.TUBE)
-                .station(Station.HOLBORN)
-                .station(Station.EARLS_COURT).build());
+                .from(Station.HOLBORN)
+                .to(Station.EARLS_COURT).build());
 
         assertThat(ops.getCard().getBalance().floatValue(), equalTo(27.5f));
     }
@@ -51,18 +51,18 @@ class OysterOperationsTest {
         ops.enterStation();
         ops.exitStation(Trip.builder()
                 .type(TripType.TUBE)
-                .station(Station.HOLBORN)
-                .station(Station.EARLS_COURT).build()); //2.5
+                .from(Station.HOLBORN)
+                .to(Station.EARLS_COURT).build()); //2.5
         ops.enterStation();
         ops.exitStation(Trip.builder()
                 .type(TripType.BUS)
-                .station(Station.EARLS_COURT)
-                .station(Station.CHELSEA).build()); //1.8
+                .from(Station.EARLS_COURT)
+                .to(Station.CHELSEA).build()); //1.8
         ops.enterStation();
         ops.exitStation(Trip.builder()
                 .type(TripType.TUBE)
-                .station(Station.EARLS_COURT)
-                .station(Station.HAMMERSMITH).build()); //2.0
+                .from(Station.EARLS_COURT)
+                .to(Station.HAMMERSMITH).build()); //2.0
 
         assertThat(ops.getCard().getBalance().floatValue(), equalTo(23.7f));
     }

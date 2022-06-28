@@ -21,14 +21,18 @@ public class EngineTest {
         return Stream.of(
                 Arguments.of(Trip.builder()
                         .type(TripType.TUBE)
-                        .station(Station.HOLBORN)
-                        .station(Station.EARLS_COURT).build(), 2.5f, "Tube Holborn to Earl’s Court"),
+                        .from(Station.HOLBORN)
+                        .to(Station.EARLS_COURT).build(), 2.5f, "Tube Holborn to Earl’s Court"),
                 Arguments.of(Trip.builder()
                         .type(TripType.BUS).build(), 1.8f, "328 bus from Earl’s Court to Chelsea"),
                 Arguments.of(Trip.builder()
                         .type(TripType.TUBE)
-                        .station(Station.EARLS_COURT)
-                        .station(Station.HAMMERSMITH).build(), 2f, "Tube Earl’s Court to Hammersmith"));
+                        .from(Station.EARLS_COURT)
+                        .to(Station.HAMMERSMITH).build(), 2f, "Tube Earl’s Court to Hammersmith"),
+                Arguments.of(Trip.builder()
+                        .type(TripType.TUBE)
+                        .from(Station.HOLBORN)
+                        .to(Station.WIMBLEDON).build(), 3.2f, "Tube Holborn to Wimbledon"));
     }
 
     @MethodSource("testFares")

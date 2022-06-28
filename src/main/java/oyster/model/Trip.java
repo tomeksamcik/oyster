@@ -1,10 +1,8 @@
 package oyster.model;
 
-import java.util.List;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.Singular;
 import lombok.ToString;
 
 @Builder
@@ -16,6 +14,8 @@ public class Trip {
     private final TripType type;
 
     @Getter
-    @Singular
-    private final List<Station> stations;
+    private final Station from;
+
+    @Getter
+    private final Station to;
 }
